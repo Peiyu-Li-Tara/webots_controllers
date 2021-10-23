@@ -1,0 +1,123 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.4527803328310104 0.8404624368798909 0.29767912656979345 1.3276405280230605
+  position 0.788663195445898 1.8910042044574347 0.8271103290248463
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 2 2
+}
+Robot {
+  children [
+    DistanceSensor {
+      translation -0.279891 0.93 0.702436
+      rotation 0 1 0 2.223
+      children [
+        Solid {
+          translation -0.02 0 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.937255 0.160784 0.160784
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "gt_ds"
+      lookupTable [
+        0 0 0
+        0.85 0.85 0
+      ]
+      type "infra-red"
+    }
+    Receiver {
+      name "ds_receiver"
+      type "serial"
+      channel 2
+    }
+    Emitter {
+      name "slider_emitter"
+      type "serial"
+      channel 1
+    }
+    Receiver {
+      name "shuttle_receiver"
+      type "serial"
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+      }
+      device [
+        LinearMotor {
+          name "side_slider"
+          maxPosition 0.7
+          maxForce 100
+        }
+      ]
+      endPoint Solid {
+        children [
+          Side_slider {
+            translation 0 0.05 0
+          }
+        ]
+        name "side_slider"
+      }
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 1 0 0
+      }
+      device [
+        LinearMotor {
+          name "back_slider"
+          maxPosition 0.5
+          maxForce 100
+        }
+      ]
+      endPoint Solid {
+        children [
+          Back_slider {
+            translation 0 0.05 0
+          }
+        ]
+        name "bs"
+      }
+    }
+    Glasstop_base {
+      translation 0 0.05 0
+    }
+  ]
+  name "glasstop"
+  controller "glasstop_test_controller"
+}
+Solid {
+  translation -0.516643 1.00978 0.385052
+  rotation -0.9996987964367955 0.01735410837392507 0.017353712149522107 1.5710956423081668
+  children [
+    DEF box Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE box
+  physics Physics {
+    density -1
+    mass 10
+  }
+}

@@ -1,0 +1,29 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.08719207245329637 0.9707139881414455 0.22385686437504884 3.8645506490810093
+  position -4.925176966878461 4.367326921828001 -5.1295172697104325
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 2 2
+}
+Robot {
+  children [
+    Glasstop {
+      translation 0.24 0 0.14
+      rotation 0 1 0 -1.5707953071795862
+    }
+    Lift {
+      translation -0.86 0 0
+    }
+  ]
+  name "in_house_station"
+  controller "<extern>"
+}

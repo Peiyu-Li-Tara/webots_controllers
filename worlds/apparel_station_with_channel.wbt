@@ -1,0 +1,30 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.07878559107652036 -0.9798808760534178 -0.1833747512159451 2.3446397351115715
+  position -4.192155529376667 3.0089353821328064 -3.815550524693234
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 2 2
+}
+Lift {
+  translation -0.83 0.02 0
+}
+Robot {
+  children [
+    Emitter {
+      name "world_emitter"
+      type "serial"
+      channel 10
+    }
+  ]
+  name "virtualbot"
+  controller "station_controller"
+}

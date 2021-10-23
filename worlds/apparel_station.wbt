@@ -1,0 +1,45 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.5498650519709023 -0.8042031089919027 -0.22562310189516174 0.943588153751495
+  position -1.7547223624312849 2.074879139857626 2.1824307733534325
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 2 2
+}
+Glasstop {
+  translation 0 0.05 0
+}
+Solid {
+  translation -0.423019 1.02495 0.472102
+  rotation 0.03643951899711774 0.9988344549792885 0.03165269343178459 0.024268858477300457
+  children [
+    DEF box Shape {
+      appearance PBRAppearance {
+        baseColor 0.988235 0.913725 0.309804
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "block"
+  boundingObject USE box
+  physics Physics {
+    density -1
+    mass 10
+  }
+}
+Lift {
+  translation -0.0900002 0 1.12
+  rotation 0 1 0 1.5708
+}

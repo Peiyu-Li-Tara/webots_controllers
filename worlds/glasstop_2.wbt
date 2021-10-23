@@ -1,0 +1,70 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.39349345236240446 -0.8816176419917873 -0.26060168126233774 5.113551681171208
+  position 4.0704507789208035 3.4985882107617354 2.4030194625398917
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 2 2
+}
+Solid {
+  translation -0.39127299433935014 0.9590829643222286 0.40012100649100485
+  rotation -0.7604642677119241 -0.45918071056995996 -0.45918098019608095 1.8412635180107277
+  children [
+    DEF box Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE box
+  physics Physics {
+    density -1
+    mass 10
+  }
+  linearVelocity 8.799362341089193e-11 -5.613262203514669e-05 -1.8408147517200102e-17
+  angularVelocity 2.1316280713899534e-16 8.790342967126886e-17 -5.237250633171874e-10
+}
+Robot {
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+      }
+      device [
+        LinearMotor {
+          name "side_slider"
+          maxPosition 0.7
+        }
+      ]
+      endPoint Side_slider {
+        translation 0 0.05 0
+      }
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 1 0 0
+      }
+      device [
+        LinearMotor {
+          name "back_slider"
+          maxPosition 0.5
+        }
+      ]
+      endPoint Back_slider {
+        translation 0 0.05 0
+      }
+    }
+    Glasstop_Base {
+      translation 0 0.05 0
+    }
+  ]
+  name "glasstop"
+  controller "glasstop_controller"
+}
